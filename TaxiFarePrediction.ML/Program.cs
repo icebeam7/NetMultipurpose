@@ -7,9 +7,9 @@ namespace TaxiFarePrediction.ML
 {
     class Program
     {
-        static readonly string _trainDataPath = Path.Combine("/media/data/", "taxi-fare-train.csv");
-        static readonly string _testDataPath = Path.Combine("/media/data/", "taxi-fare-test.csv");
-        static readonly string _modelPath = Path.Combine("/media/data/", "Model.zip");
+        static readonly string _trainDataPath = "taxi-fare-train.csv";
+        static readonly string _testDataPath = "taxi-fare-test.csv";
+        static readonly string _modelPath = Path.Combine(Environment.CurrentDirectory, "Data", "Model.zip");
 
         static void Main(string[] args)
         {
