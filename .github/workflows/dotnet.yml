@@ -33,3 +33,6 @@ jobs:
       run: dotnet restore TaxiFarePrediction.ML/TaxiFarePrediction.ML.csproj
     - name: Build
       run: dotnet build TaxiFarePrediction.ML/TaxiFarePrediction.ML.csproj --configuration Release --no-restore
+    - name: Train
+      working-directory: 'TaxiFarePrediction.ML'
+      run: dotnet run --project TaxiFarePrediction.ML.csproj
