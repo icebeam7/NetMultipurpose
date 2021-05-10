@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:TaxiFarePrediction.Mobile.ViewModels"
+             x:Class="TaxiFarePrediction.Mobile.Views.PredictView">
+
+    <ContentPage.BindingContext>
+        <vm:PredictViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <ScrollView Margin="10">
+            <StackLayout Spacing="10">
+                <Label Text="Vendor Id"
+                       Style="{StaticResource tripLabel}"/>
+                <Entry Text="{Binding VendorId}"
+                       Style="{StaticResource tripEntry}"/>
+
+                <Label Text="Rate Code"
+                       Style="{StaticResource tripLabel}"/>
+                <Entry Text="{Binding RateCode}"
+                       Style="{StaticResource tripEntry}"/>
+
+                <Label Text="Passenger Count"
+                       Style="{StaticResource tripLabel}"/>
+                <Entry Text="{Binding PassengerCount}"
+                       Style="{StaticResource tripEntry}"/>
+
+                <Label Text="Trip Time"
+                       Style="{StaticResource tripLabel}"/>
+                <Entry Text="{Binding TripTime}"
+                       Style="{StaticResource tripEntry}"/>
+
+                <Label Text="Trip Distance"
+                       Style="{StaticResource tripLabel}"/>
+                <Entry Text="{Binding TripDistance}"
+                       Style="{StaticResource tripEntry}"/>
+
+                <Label Text="Payment Type"
+                       Style="{StaticResource tripLabel}"/>
+                <Entry Text="{Binding PaymentType}"
+                       Style="{StaticResource tripEntry}"/>
+
+                <Button Text="Predict"
+                        Style="{StaticResource tripButton}"
+                        Command="{Binding PredictCommand}"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
