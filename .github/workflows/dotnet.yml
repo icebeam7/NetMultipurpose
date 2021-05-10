@@ -17,19 +17,14 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.101   
-    - uses: suisei-cn/actions-download-file@v1
-      id: traincsv  
-      name: Download the file
-      with:
-        url: "https://sqldayaccount.blob.core.windows.net/data/taxi-fare-train.csv"
-        target: media/data/
-    - uses: suisei-cn/actions-download-file@v1
-      id: testcsv  
-      name: Download the file
-      with:
-        url: "https://sqldayaccount.blob.core.windows.net/data/taxi-fare-test.csv"
-        target: media/data/
+    - name: Download the file
+      run: wget https://sqldayaccount.blob.core.windows.net/data/taxi-fare-train.csv -O taxi-fare-train.csv
+    - name: Download the file
+      run: wget https://sqldayaccount.blob.core.windows.net/data/taxi-fare-test.csv -O taxi-fare-test.csv
     - name: Install dependencies
       run: dotnet restore TaxiFarePrediction.ML/TaxiFarePrediction.ML.csproj
     - name: Build
       run: dotnet build TaxiFarePrediction.ML/TaxiFarePrediction.ML.csproj --configuration Release --no-restore
+    - name: Train
+      working-directory: 'TaxiFarePrediction.ML'
+      run: dotnet run --project TaxiFarePrediction.ML.csproj
