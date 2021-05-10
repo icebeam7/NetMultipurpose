@@ -18,9 +18,9 @@ jobs:
       with:
         dotnet-version: 3.1.101   
     - name: Download the file
-      run: wget https://sqldayaccount.blob.core.windows.net/data/taxi-fare-train.csv -O media/file/taxi-fare-train.csv
+      run: wget https://sqldayaccount.blob.core.windows.net/data/taxi-fare-train.csv -O taxi-fare-train.csv
     - name: Download the file
-      run: wget https://sqldayaccount.blob.core.windows.net/data/taxi-fare-test.csv -O media/file/taxi-fare-test.csv
+      run: wget https://sqldayaccount.blob.core.windows.net/data/taxi-fare-test.csv -O taxi-fare-test.csv
     - name: Install dependencies
       run: dotnet restore TaxiFarePrediction.ML/TaxiFarePrediction.ML.csproj
     - name: Build
